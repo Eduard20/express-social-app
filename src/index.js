@@ -16,6 +16,12 @@ const routes = require('./routes');
 const {checkHttpOptions} = require('./middlewares');
 
 /**
+ * Connecting db
+ */
+
+require('./db/connection');
+
+/**
  * Other Middleware
  */
 

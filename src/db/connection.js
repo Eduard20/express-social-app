@@ -17,17 +17,19 @@ const databaseService = new Sequelize(db.database, db.username, db.password, {
   port: 3306
 });
 
-async function syncDatabase () {
-  await databaseService.authenticate();
-  log.info('Connection with the DB was successful');
+(async function syncDatabase () {
+  try {
+    await databaseService.authenticate();
+    log.info('Connection with the DB was successful');
 
-  await databaseService.sync({
-    // force: true,
-  });
-  log.info('All schemes were created successfully');
-}
+    await databaseService.sync({
+      // force: true,
+    });
+    log.info('All schemes were created successfully');
+  } catch (err) {
+    log.error(`Error when syncing database ${err}`);
+    databaseService.close();
+  }
+})();
 
-syncDatabase().catch((err) => {
-  log.error(`Error when syncing database ${err}`);
-  databaseService.close();
-});
+module.exports = databaseService;

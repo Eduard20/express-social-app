@@ -2,7 +2,9 @@
 
 const express = require('express');
 const router = express.Router();
-const {add, edit} = require('./controllers');
+const {add, edit, getAll} = require('./controllers');
+const jwt = require('express-jwt');
+const config = require('../../config');
 
 /**
  * @api
@@ -16,12 +18,16 @@ router.post('/', add);
  * @description edit a user
  */
 
-router.put('/', edit);
+router.put('/',
+  jwt({secret: config.jwtSecret}),
+  edit);
 
 /**
  * @api
- * @description edit a user
+ * @description get all users
  */
+
+router.get('/', getAll);
 
 module.exports = router;
 

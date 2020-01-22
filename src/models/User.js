@@ -7,7 +7,8 @@ const User = databaseService.define('users', {
   imageUri: {type: Sequelize.STRING},
   salt: {type: Sequelize.STRING},
   password: {type: Sequelize.STRING},
-  token: {type: Sequelize.STRING}
+  token: {type: Sequelize.STRING},
+  uuid: { type: Sequelize.STRING }
 }, {});
 
 module.exports = User;

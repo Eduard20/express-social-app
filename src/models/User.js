@@ -10,7 +10,7 @@ const User = databaseService.define('users', {
   token: {type: Sequelize.STRING},
   uuid: { type: Sequelize.STRING },
   sex: { type: Sequelize.STRING },
-  date: { type: Sequelize.DATE }
+  age: { type: Sequelize.INTEGER }
 }, {});
 
 module.exports = User;

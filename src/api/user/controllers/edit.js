@@ -6,13 +6,19 @@ const {User} = require('../../../models');
 
 module.exports = async (req, res, next) => {
   try {
-    const {firstName, lastName} = req.body;
+    const {firstName, lastName, male, age} = req.body;
     let query = {};
     if (firstName) {
       query.firstName = firstName;
     }
     if (lastName) {
       query.lastName = lastName;
+    }
+    if (male) {
+      query.male = male;
+    }
+    if (age) {
+      query.age = age;
     }
     await User.update(query, {
       where: {uuid: req.user.uuid}

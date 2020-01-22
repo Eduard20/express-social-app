@@ -1,7 +1,5 @@
 'use strict';
 
-const {errorMessages} = require('../../../texts');
-const log = require('../../../utils/logger');
 const {User} = require('../../../models');
 
 module.exports = async (req, res, next) => {
@@ -15,7 +13,6 @@ module.exports = async (req, res, next) => {
       }
     });
   } catch (err) {
-    log.error(errorMessages.userCreation);
     next(err);
   }
 };

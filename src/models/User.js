@@ -8,7 +8,9 @@ const User = databaseService.define('users', {
   salt: {type: Sequelize.STRING},
   password: {type: Sequelize.STRING},
   token: {type: Sequelize.STRING},
-  uuid: { type: Sequelize.STRING }
+  uuid: { type: Sequelize.STRING },
+  sex: { type: Sequelize.STRING },
+  date: { type: Sequelize.DATE }
 }, {});
 
 module.exports = User;

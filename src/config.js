@@ -6,7 +6,8 @@ const {
   PORT,
   DB_USERNAME,
   DB_PASSWORD,
-  DB_DATABASE
+  DB_DATABASE,
+  JWT_SECRET
 } = process.env;
 const constants = require('./constants');
 const nodeEnv = NODE_ENV || constants.app.environments.dev;
@@ -20,5 +21,6 @@ module.exports = {
     username: DB_USERNAME || '',
     password: DB_PASSWORD || '',
     database: DB_DATABASE || ''
-  }
+  },
+  jwtSecret: JWT_SECRET || 'jwtsecret'
 };

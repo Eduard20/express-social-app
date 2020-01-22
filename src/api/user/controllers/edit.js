@@ -3,9 +3,9 @@
 const {errorMessages} = require('../../../texts');
 const log = require('../../../utils/logger');
 
-module.exports = async (user) => {
+module.exports = async (req, res) => {
   try {
-    // TODO:edit user
+
   } catch (err) {
     log.error(errorMessages.userEdit);
   }

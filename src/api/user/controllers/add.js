@@ -3,11 +3,22 @@
 const {errorMessages} = require('../../../texts');
 const log = require('../../../utils/logger');
 const {User} = require('../../../models');
+const {generateSalt, encryptPassword, generateToken} = require('../../../utils');
 
-module.exports = async (user) => {
+module.exports = async (req, res, next) => {
   try {
-    await User.create(user);
+    const user = User.build(req.body);
+    user.salt = generateSalt();
+    user.password = encryptPassword(user.password, user.salt);
+    user.token = generateToken({_id: user._id});
+    await user.save();
+    return res.status(201).send({
+      result: {
+        token: user.token
+      }
+    });
   } catch (err) {
     log.error(errorMessages.userCreation);
+    next(err);
   }
 };

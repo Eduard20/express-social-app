@@ -1,7 +1,13 @@
 'use strict';
 
-const makeHttpRequest = require('./make-http-request');
+const generateToken = require('./generators/generate-token');
+const generateSalt = require('./generators/generate-salt');
+const generatePassword = require('./generators/generate-password');
+const encryptPassword = require('./encrypt-password');
 
 module.exports = {
-  makeHttpRequest
+  generateToken,
+  encryptPassword,
+  generatePassword,
+  generateSalt
 };

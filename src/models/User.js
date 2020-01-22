@@ -1,19 +1,13 @@
-const { Sequelize } = require('sequelize');
+const {Sequelize} = require('sequelize');
 const databaseService = require('../db/connection');
+
 const User = databaseService.define('users', {
-  // attributes
-  firstName: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  lastName: {
-    type: Sequelize.STRING
-  },
-  imageUri: {
-    type: Sequelize.STRING
-  }
-}, {
-  // options
-});
+  firstName: {type: Sequelize.STRING, allowNull: false},
+  lastName: {type: Sequelize.STRING},
+  imageUri: {type: Sequelize.STRING},
+  salt: {type: Sequelize.STRING},
+  password: {type: Sequelize.STRING},
+  token: {type: Sequelize.STRING}
+}, {});
 
 module.exports = User;

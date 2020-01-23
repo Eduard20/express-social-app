@@ -9,7 +9,14 @@ const User = databaseService.define('users', {
   password: {type: Sequelize.STRING},
   token: {type: Sequelize.STRING},
   uuid: { type: Sequelize.STRING },
-  sex: { type: Sequelize.STRING },
+  sex: {
+    type: Sequelize.ENUM,
+    values: [
+      'male',
+      'female'
+    ],
+    defaultValue: 'male'
+  },
   age: { type: Sequelize.INTEGER }
 }, {});
 

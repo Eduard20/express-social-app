@@ -42,4 +42,5 @@ router.post('/images',
   addImage);
 
 router.get('/images/:id', getImage);
+
 module.exports = router;

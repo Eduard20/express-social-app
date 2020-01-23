@@ -16,8 +16,9 @@ module.exports = async (req, res, next) => {
     if (sex) {
       where.sex = sex;
     }
+    const attributes = ['firstName', 'lastName', 'imageUri', 'uuid', 'age', 'sex'];
     const users = await User.findAll({
-      attributes: ['firstName', 'lastName', 'imageUri', 'uuid', 'age', 'sex'], // uuid added just for debugging purposes
+      attributes,
       where
     });
     return res.send({
